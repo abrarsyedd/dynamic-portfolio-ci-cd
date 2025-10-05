@@ -26,7 +26,7 @@ Your app will be available at: **http://localhost:3000**
 
 ---
 
-## 🛠 Useful Docker Commands
+## 🛠 Useful Docker Commands.
 
 ```bash
 # List all containers
