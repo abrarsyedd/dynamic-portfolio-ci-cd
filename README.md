@@ -9,7 +9,7 @@ This repository demonstrates how to containerize a Node.js application and manag
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/dynamic-portfolio-ci-cd.git
+git clone https://github.com/abrarsyedd/dynamic-portfolio-ci-cd.git
 cd dynamic-portfolio-ci-cd
 ```
 
