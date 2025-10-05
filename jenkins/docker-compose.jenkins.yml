@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  jenkins:
+    # We will now use the new image name and tag it explicitly
+    image: my-custom-jenkins:latest 
+    # Build configuration is removed since we are using the pre-built image, 
+    # but let's keep it if you want to rebuild it later.
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: root 
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins_home:/var/jenkins_home
+    restart: always
+    container_name: jenkins-master
+
+volumes:
+  jenkins_home:

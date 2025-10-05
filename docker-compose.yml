@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  app:
+    image: syed048/portfolio-app:latest
+    container_name: portfolio-app
+    # Use the .env file for environment variables
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mysql:8.0
+    container_name: portfolio-db
+    environment:
+      # These environment variables configure the initial MySQL setup
+      MYSQL_ROOT_PASSWORD: 123admin
+      MYSQL_DATABASE: portfolio_db
+      MYSQL_USER: syed
+      MYSQL_PASSWORD: 123admin
+    volumes:
+      # Persistent data volume for the database
+      - db_data:/var/lib/mysql
+      # Execute init.sql on first run to set up tables
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    restart: always
+    ports:
+      - "3307:3306" # Host: 3307 -> Container: 3306
+
+  adminer:
+    image: adminer
+    container_name: portfolio-adminer
+    restart: always
+    ports:
+      - "8082:8080"
+
+volumes:
+  # Define the named volume for MySQL persistent storage
+  db_data:

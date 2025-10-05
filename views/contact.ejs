@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact — Abrar Syed</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Abrar Syed</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/portfolio">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <label>Name</label>
+      <input name="name" required>
+      <label>Email</label>
+      <input name="email" type="email" required>
+      <label>Message</label>
+      <textarea name="message"></textarea>
+      <button type="submit" class="btn">Send</button>
+      <div id="status"></div>
+    </form>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© 2025 Abrar Syed</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = { name: form.name.value, email: form.email.value, message: form.message.value };
+      document.getElementById('status').textContent = 'Sending...';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+        if (json.success) {
+          document.getElementById('status').textContent = 'Message sent — thank you!';
+          form.reset();
+        } else {
+          document.getElementById('status').textContent = 'Failed to send.';
+        }
+      } catch {
+        document.getElementById('status').textContent = 'Server error.';
+      }
+    });
+  </script>
+</body>
+</html>
+
