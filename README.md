@@ -16,10 +16,10 @@ cd dynamic-portfolio-ci-cd
 ### 2. Build and run with Docker
 ```bash
 # Build the Docker image
-docker build -t dynamic-portfolio .
+docker build -t syed048/portfolio-app:latest .
 
-# Run the container
-docker run -d -p 3000:3000 dynamic-portfolio
+# start everything (app + mysql + adminer)
+docker-compose up -d
 ```
 
 Your app will be available at: **http://localhost:3000**
