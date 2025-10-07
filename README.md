@@ -12,7 +12,7 @@ This repository demonstrates how to containerize a Node.js application and manag
 git clone https://github.com/abrarsyedd/dynamic-portfolio-ci-cd.git
 cd dynamic-portfolio-ci-cd
 ```
-## 2. View instructions from Docker image (optional)
+### 2. View instructions from Docker image (optional)
 ```bash
 You can display full deployment instructions directly from the Docker image:
 docker run --rm syed048/portfolio-app:latest --help
