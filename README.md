@@ -14,7 +14,7 @@ cd dynamic-portfolio-ci-cd
 ```
 ### 2. View instructions from Docker image (optional)
 ```bash
-You can display full deployment instructions directly from the Docker image:
+# You can display full deployment instructions directly from the Docker image:
 docker run --rm syed048/portfolio-app:latest --help
 ```
 ### 3. Build and run with Docker
