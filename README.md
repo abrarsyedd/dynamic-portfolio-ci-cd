@@ -20,6 +20,9 @@ docker build -t syed048/portfolio-app:latest .
 
 # start everything (app + mysql + adminer)
 docker-compose up -d
+
+# stop everything (app + mysql + adminer)
+docker-compose down
 ```
 
 Your app will be available at: **http://localhost:3000**
