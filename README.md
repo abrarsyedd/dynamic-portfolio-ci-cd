@@ -26,6 +26,7 @@ docker-compose up -d
 ```bash
 # stop everything (app + mysql + adminer)
 docker-compose down
+```
 
 Your app will be available at: **http://localhost:3000**
 
